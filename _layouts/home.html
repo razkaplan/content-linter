@@ -1,4 +1,3 @@
-<!-- filepath: /Users/razkaplan/Documents/my-website/_layouts/home.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +7,15 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      color: #333;
-      background-color: #f4f4f4;
+      font-family: 'Times New Roman', serif;
+      color: #00FF00; /* Green font */
+      background-color: #000000; /* Black background */
       margin: 0;
       padding: 0;
     }
     header {
-      background-color: #0073e6;
-      color: white;
+      background-color: #333333;
+      color: #00FF00;
       padding: 20px 0;
       text-align: center;
     }
@@ -28,16 +27,30 @@
       margin: 10px 0 0;
       font-size: 1.2em;
     }
+    nav {
+      background-color: #444444;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      color: #00FF00;
+      text-decoration: none;
+      margin: 0 15px;
+      font-size: 1.2em;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
     main {
       padding: 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
     .home {
-      background: white;
+      background: #222222;
       padding: 20px;
       border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     }
     .post-list {
       list-style: none;
@@ -47,22 +60,35 @@
       margin-bottom: 20px;
     }
     .post-meta {
-      color: #999;
+      color: #999999;
       font-size: 0.9em;
     }
     .post-link {
-      color: #0073e6;
+      color: #00FF00;
       text-decoration: none;
       font-size: 1.5em;
     }
     .post-link:hover {
       text-decoration: underline;
     }
+    .contact {
+      text-align: center;
+      margin-top: 40px;
+    }
+    .contact a {
+      color: #00FF00;
+      text-decoration: none;
+      margin: 0 10px;
+      font-size: 1.2em;
+    }
+    .contact a:hover {
+      text-decoration: underline;
+    }
     footer {
       text-align: center;
       padding: 20px 0;
-      background-color: #0073e6;
-      color: white;
+      background-color: #333333;
+      color: #00FF00;
       margin-top: 20px;
     }
   </style>
@@ -72,18 +98,18 @@
     <h1>{{ site.title }}</h1>
     <p>{{ site.description }}</p>
   </header>
+  <nav>
+    <a href="{{ site.baseurl }}/">Home</a>
+    <a href="{{ site.baseurl }}/about">About</a>
+    <a href="{{ site.baseurl }}/blog">Blog</a>
+    <a href="{{ site.baseurl }}/contact">Contact</a>
+  </nav>
   <main>
     <div class="home">
-      {%- if page.title -%}
-        <h1 class="page-heading">{{ page.title }}</h1>
-      {%- endif -%}
-
-      {{ content }}
-
       {%- if site.posts.size > 0 -%}
         <h2 class="post-list-heading">{{ page.list_title | default: "Latest Posts" }}</h2>
         <ul class="post-list">
-          {%- for post in site.posts -%}
+          {%- for post in site.posts limit:4 -%}
           <li>
             {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
             <span class="post-meta">{{ post.date | date: date_format }}</span>
@@ -98,10 +124,15 @@
           </li>
           {%- endfor -%}
         </ul>
-
-        <p class="rss-subscribe">Subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>
       {%- endif -%}
 
+      <p>{{ site.description }}</p>
+
+      <div class="contact">
+        <h2>Contact Me</h2>
+        <a href="mailto:{{ site.email }}">Email</a>
+        <a href="https://www.linkedin.com/in/{{ site.LinkedIn_username }}" target="_blank">LinkedIn</a>
+      </div>
     </div>
   </main>
   <footer>
