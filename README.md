@@ -1,9 +1,3 @@
----
-layout: page
-title: About
-permalink: /about/
----
-
 # 👋 Hey, I'm Raz
 
 ## 🚀 Modern Marketing, Growth, and AI for B2B Startups Go-to-market
