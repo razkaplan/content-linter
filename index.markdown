@@ -6,7 +6,7 @@ title: Home
 <div class="max-w-4xl mx-auto p-6 space-y-8">
   <!-- Hero Section -->
   <section class="text-center space-y-4">
-    <h1 class="text-4xl font-bold">Empowering Founders to Scale with Confidence</h1>
+    <h1 class="text-4xl font-bold">Headless Marketing - Empowering Founders to Scale with Confidence</h1>
     <p class="text-lg text-gray-600">Expert guidance and hanns on execution for technical founders to establish robust Go-to-Market strategies—efficiently and effectively.</p>
   </section>
 

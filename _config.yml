@@ -7,7 +7,7 @@ description: |
   Dive into my blog for insights on modern marketing, 
   and discover the tailored services I offer to help technical founders build scalable go-to-market strategies. 
   Let's make your growth journey smarter and more effective!
-baseurl: "" # the subpath of your site, e.g. /blog
+baseurl: "/my-website" # the subpath of your site, e.g. /blog
 url: "https://razkaplan.github.io/my-website" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: "raz_kaplan"
 github_username:  "razkaplan"
