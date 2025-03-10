@@ -5,7 +5,6 @@ publishedAt: "2025-03-02"
 summary: "how to run measurable guerrilla marketing campaigns for your B2B startup. Discover a structured approach to low-budget, high-impact marketing, leveraging constraints for creativity and tracking results effectively"
 ---
 
-
 An early-stage heavy-tech B2B startup founder reached out and asked me:
 
 “If LinkedIn ads are so expensive, and the cold outreach success rate is so low, why don’t we do a guerrilla campaign? Just hire some guy to wave a sign from an airplane or something.”

@@ -1,12 +1,11 @@
 source "https://rubygems.org"
 
-gem "jekyll", "~> 3.9.0" # Downgrade Jekyll to a compatible version
-gem "minima", "~> 2.1.1" # Downgrade Minima to a compatible version
+gem "jekyll"
 
 group :jekyll_plugins do
-  gem "jekyll-feed", "~> 0.9.2" # Downgrade jekyll-feed to a compatible version
   gem "jekyll-sitemap"
   gem "jekyll-paginate"
+  gem "github-pages"
 end
 
 gem "logger"

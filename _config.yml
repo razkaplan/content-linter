@@ -2,13 +2,13 @@
 title: Raz Kaplan
 email: raz.kaplan@gmail.com
 description: |
-  Welcome to Raz Kaplan corner of the web! As a seasoned marketer and startup strategist, 
+  As a seasoned marketer and startup strategist, 
   I share my thoughts on growth, tech, and everything in between. 
   Dive into my blog for insights on modern marketing, 
   and discover the tailored services I offer to help technical founders build scalable go-to-market strategies. 
   Let's make your growth journey smarter and more effective!
-baseurl: "/my-website" # the subpath of your site, e.g. /blog
-url: "https://razkaplan.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://razkaplan.github.io/my-website" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: "raz_kaplan"
 github_username:  "razkaplan"
 LinkedIn_username: "razkaplan"
