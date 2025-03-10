@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }}</title>
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/main.css">
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      var links = document.querySelectorAll('a[href^="http"]');
+      links.forEach(function(link) {
+        if (link.hostname !== window.location.hostname) {
+          link.setAttribute('target', '_blank');
+          link.setAttribute('rel', 'noopener noreferrer');
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <header>
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.description }}</p>
+    <nav>
+      <ul>
+        <li><a href="{{ site.baseurl }}/">Home</a></li>
+        <li><a href="{{ site.baseurl }}/about">About</a></li>
+        <li><a href="{{ site.baseurl }}/blog">Blog</a></li>
+        <li><a href="{{ site.baseurl }}/contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <main>
+    {{ content }}
+  </main>
+  <footer>
+    <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+    <p>
+      <a href="mailto:{{ site.email }}">Email</a> |
+      <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">Twitter</a> |
+      <a href="https://github.com/{{ site.github_username }}" target="_blank">GitHub</a> |
+      <a href="https://www.linkedin.com/in/{{ site.LinkedIn_username }}" target="_blank">LinkedIn</a>
+    </p>
+  </footer>
+</body>
+</html>
