@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Generative Engine Optimization (GEO): Rethinking Brand Visibility in the AI Era"
-publishedAt: "2025-03-10"
+date: 2025-03-10
 summary: "AI-driven search is changing how brands are discovered, shifting the focus from traditional SEO to Generative Engine Optimization (GEO). With AI models favoring trusted sources, brand mentions, and structured data like llms.txt, marketers must rethink their approach. This post explores emerging GEO tools, the role of PR and social engagement, and why we may need a Generative Console—a new way to track and influence AI-driven brand rankings"
 ---
 
