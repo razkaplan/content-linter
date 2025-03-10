@@ -2,72 +2,29 @@
 layout: post
 title: "My app is cool"
 publishedAt: "2025-03-14"
-summary: "how to run measurable guerrilla marketing campaigns for your B2B startup. Discover a structured approach to low-budget, high-impact marketing, leveraging constraints for creativity and tracking results effectively"
+summary: "Introducing: Transactions to investments - put your money where your mouth is" 
 ---
 
+I took the weekend to work on a simple finance tool.
+This tool can inspire Product managers and founders in the finance industry to build a more robust solution that meet these needs. 
 
-An early-stage heavy-tech B2B startup founder reached out and asked me:
+I listend to a podcast interview with a hedgefund manager, he says that one of his stratgies is looking at his own shopping behaivor, and see if the products he purchase are coming from publicly traded companies. 
+So, it got me thinking - Can I scale it? 
+Can I scan my credit card expansion reports from the last year and literally put my money where my mouth is? 
+TL;DR - Yes. 
+The hardest part was reading a bi-lingual PDF. 
+Next step was extracting transactions that are publicly traded. I've downloaded the list of all publicly traded companies from all over the world. Since I live in Israel and travel a lot, I figured, why not? 
 
-“If LinkedIn ads are so expensive, and the cold outreach success rate is so low, why don’t we do a guerrilla campaign? Just hire some guy to wave a sign from an airplane or something.”
+So now I have this CSV with companmy, global symbol, date of tranasaction and cost in USD. I've reached out to yahoo finance API to find the cost of stock on the transaction date. 
 
-Well...
+Now the table look like this - Company, Symbol, date of transaction, cost, change of stock from this date to today in %, and in USD, based on the cost. 
 
-Yes, you *can* go wild. But you can also put all your budget on one poker table. The odds of significantly growing your ARR are about the same. Like in Texas Hold'em, what matters is long-term expectation, not one lucky hand.
+Next, I did the same thing for my groccery shopping cart, to get access to non b2c brands like P&G. 
 
-But if you want to do guerrilla marketing right, you need a method. And you can learn from the G.O.A.T.s of business. As Reed Hastings put it:
+To summarize, in 2024, if I would have doubled my investment and for each product, purchase a stock, for the same price, my money will return X3. 
 
- *"Frugality drives innovation, just like other constraints do. One of the only ways to get out of a tight box is to invent your way out."*
+For refrence, S&P did XX in the same time. 
 
-### **Guerrilla Marketing Done Right**
+Try it out yourself. I don't keep any information on the server, I've added links to interactive brockers. 
 
-Guerrilla marketing is all about working within constraints: **low budget, unconventional tactics, and a WOW effect.** But without clear boundaries and structure, it can easily become a waste of time and money.
-
-Instead, I propose a **disciplined approach** that ensures your campaign is targeted, measurable, and actually moves the needle.
-
-Some founders call it an experiment, which helps frame it as a structured initiative. If it works, you add it to the budget as an ongoing activity.
-
-### **The Formula for Measurable Guerrilla Marketing**
-
-#### **1\. Set Strict Definitions**
-
-* Focus on a **specific goal** and **clear audience**  
-* Stay **low-budget**  
-* Ensure your campaign **aligns with your brand and provides real value**  
-* A value could be:  
-  * Solving a **pain point** (Hunger is a pain. So is dehydration. So is inefficiency.)  
-  * Educating or inspiring   
-  * **Creating positive emotions** that make them remember you (happiness, laughter, surprise)
-
-#### **2\. Make It Measurable**
-
-The biggest mistake in guerrilla marketing is executing a flashy stunt without tracking the impact. Here’s how to ensure your campaign has measurable results:
-
-* **Start with the audience.** Define who they are and where they are.  
-* **Benchmark against a traditional campaign.**  
-* **Example:** Let’s say your ICP (Ideal Customer Profile) is **VPs of R\&D** at companies with **200-500 employees**. You want to engage **100 key decision-makers.**
-
-#### **3\. Find a Creative Way to Reach Them**
-
-* Cold emails? Ineffective—they get 100s of them daily.  
-* LinkedIn ads? Too expensive.  
-* Local ads? Useless since your audience is scattered globally.
-
-So you decide to **send them a gift.** A tangible, physical object that resonates with your brand and provides them with value—maybe even a moment of happiness.
-
-But how do you measure its impact?
-
-#### **4\. Track and Validate Engagement**
-
-* **Validate addresses** before sending. The **office manager** is your best friend—be nice, they might share valuable insights.  
-* **Confirm delivery** through email or a friendly follow-up call. You’re "just checking" if they received it, but in reality, you’re creating engagement.
-
-#### **5\. Narrow Website Tracking**
-
-* **Create a dashboard** to monitor visits from locations where you sent the gifts.  
-* **Use reverse IP tracking (RB2B)** to match visits to LinkedIn profiles.
-
-### **Final Thoughts**
-
-Guerrilla marketing isn't about randomness; it's about strategic creativity. If you define clear goals, leverage constraints, and track your impact, you can create low-cost, high-impact campaigns that punch above their weight.
-
-Your move.
+Download the free gmail extension - it does the exact same thing automatically 
