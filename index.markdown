@@ -31,9 +31,9 @@ title: Home
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {% for post in site.posts limit:3 %}
       <div class="card p-4 border rounded-lg shadow-sm">
-        <h3 class="text-lg font-semibold"><a href="{{ post.url }}">{{ post.title }}</a></h3>
+        <h3 class="text-lg font-semibold"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h3>
         <p>{{ post.summary }}</p>
-        <p><a href="{{ post.url }}">Read</a></p>
+        <p><a href="{{ site.baseurl }}{{ post.url }}">Read</a></p>
         ---
       </div>
       {% endfor %}
