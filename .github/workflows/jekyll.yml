@@ -45,6 +45,9 @@ jobs:
         uses: actions/configure-pages@v5
       - name: Print environment
         run: printenv
+      - name: Install dependencies
+        run: |
+          bundle install 2>&1 | tee bundle-install.log
       - name: Build with Jekyll
         # Outputs to the './_site' directory by default
         run: |
@@ -56,6 +59,11 @@ jobs:
         with:
           name: build-log
           path: build.log
+      - name: Upload bundle install log
+        uses: actions/upload-artifact@v4
+        with:
+          name: bundle-install-log
+          path: bundle-install.log
       - name: Upload artifact
         # Automatically uploads an artifact from the './_site' directory by default
         uses: actions/upload-pages-artifact@v3
