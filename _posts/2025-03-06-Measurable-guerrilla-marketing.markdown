@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to Do Measurable Guerrilla Marketing"
-publishedAt: "2025-03-02"
+date: 2025-03-06
 summary: "how to run measurable guerrilla marketing campaigns for your B2B startup. Discover a structured approach to low-budget, high-impact marketing, leveraging constraints for creativity and tracking results effectively"
 ---
 
