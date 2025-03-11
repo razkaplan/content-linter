@@ -3,6 +3,14 @@ layout: default
 title: Home
 ---
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    
+    <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+
+</head>   
 <div class="max-w-4xl mx-auto p-6 space-y-8">
   <!-- Hero Section -->
   <section class="text-center space-y-4">
@@ -27,7 +35,7 @@ title: Home
 
   <!-- Blog Section -->
   <section class="space-y-4">
-    <h2 class="text-2xl font-semibold">Latest Insights - My Blog</h2>
+    <h2 class="text-2xl font-semibold">Latest Insights - Blog</h2>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {% for post in site.posts limit:3 %}
       <div class="card p-4 border rounded-lg shadow-sm">
