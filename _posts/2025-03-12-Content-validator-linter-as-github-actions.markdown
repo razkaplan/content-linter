@@ -26,7 +26,9 @@ I invite you to install the Action, and if you’re a developer, consider contri
 Excited to announce the release of the Content Linter GitHub Action! This action is designed to help you ensure that your blog posts meet technical SEO requirements and include relevant keywords. It performs two main checks:
 
 1. **Technical SEO**: Ensures that all titles, descriptions, and images exist and are described as needed. It also checks for broken links.
-2. **Keywords**: Ensures that one or more of the declared keywords appear in relevant places. The declared keywords are stored in a configuration file called `keywords.txt`.
+2. **Keywords**: Ensures that one or more of the declared keywords appear in relevant places. The declared keywords are stored in a configuration file called `keywords.txt`. 
+
+Tip: Make sure you have it with your own keywords before using the script 
 
 ### Features
 
