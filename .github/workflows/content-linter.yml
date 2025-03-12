@@ -25,3 +25,17 @@ jobs:
 
       - name: Run Content Linter
         run: python .github/scripts/content_linter.py
+
+# Metadata for GitHub Marketplace
+name: "Content Linter"
+description: "A GitHub Action to lint blog posts for technical SEO and keyword presence."
+author: "Raz Kaplan"
+branding:
+  color: "blue"
+  icon: "book"
+
+inputs:
+  keywords-file:
+    description: "Path to the keywords configuration file"
+    required: true
+    default: ".github/scripts/keywords.txt"
