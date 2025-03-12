@@ -5,21 +5,25 @@ publishedAt: "2025-03-12"
 summary: "Exploring the use of GitHub and visual studio for content management, leveraging GitHub Copilot and GitHub Actions. This post introduces a custom-built Content Linter GitHub Action designed to ensure blog posts meet technical SEO requirements and include relevant keywords."
 ---
 
-When I worked at a dev-tool company, they required everything we posted to go through GitHub, including blogs. As a marketer, I wasn't used to working that way, but as a former journalist and content writer, I found the idea of an approval mechanism that requires reviews, both automated and manual, fascinating.
+## Managing Content Like Code: A Marketer’s Journey
 
-Getting closer to developers exposed me to the simple yet clever idea of GitHub Actions and automated checks and tests. So I figured, why not have a simple tool that will act similar to YoastSEO, but inside GitHub, only for blog posts?
+When I worked at a dev-tool company, everything—blogs included—had to go through GitHub. As a marketer, this was unfamiliar territory, but my background in journalism and content writing made me appreciate the structured review process. Having automated and manual approvals felt like a game-changer for content quality.
 
-What's even cooler is that I used GitHub Copilot in VS Code to build the linter, only "code vibing". Additionally, since Copilot is powered by GPT-4, I'm using it to edit and proofread this blog! This makes my process fast and accurate. For now, VS Code is my WordPress.
+As I spent more time with developers, I became fascinated by GitHub Actions and automated checks. That’s when I thought: Why not build a tool similar to YoastSEO, but integrated into GitHub, specifically for blog posts?
 
-I invite you to install the Action, and if you are a developer, I invite you to contribute to the project.
+## Introducing the Content Linter GitHub Action
 
-In the next steps, I'm looking to add spell check and brand-voice checker.
+To make this idea a reality, I used GitHub Copilot in VS Code to build the Content Linter—essentially just "code vibing." Copilot, powered by GPT-4, also helped me proofread this post! Now, VS Code is my WordPress—a fast and accurate workflow for writing and optimizing content.
+
+This GitHub Action ensures blog posts meet SEO standards and include relevant keywords, helping marketers and developers maintain quality directly within GitHub.
+
+I invite you to install the Action, and if you’re a developer, consider contributing to the project.
 
 ## Release Notes: Content Linter GitHub Action v1.0.0
 
 ### Overview
 
-We are excited to announce the release of the Content Linter GitHub Action! This action is designed to help you ensure that your blog posts meet technical SEO requirements and include relevant keywords. It performs two main checks:
+Excited to announce the release of the Content Linter GitHub Action! This action is designed to help you ensure that your blog posts meet technical SEO requirements and include relevant keywords. It performs two main checks:
 
 1. **Technical SEO**: Ensures that all titles, descriptions, and images exist and are described as needed. It also checks for broken links.
 2. **Keywords**: Ensures that one or more of the declared keywords appear in relevant places. The declared keywords are stored in a configuration file called `keywords.txt`.
