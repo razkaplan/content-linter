@@ -2,16 +2,16 @@
 layout: post
 title: "Thoughts of using GitHub to manage content, with co-pilot and GitHub Actions"
 publishedAt: "2025-03-12"
-summary: "Thoughts of using GitHub to manage content, with co-pilot and GitHub Actions"
+summary: "Exploring the use of GitHub and visual studio for content management, leveraging GitHub Copilot and GitHub Actions. This post introduces a custom-built Content Linter GitHub Action designed to ensure blog posts meet technical SEO requirements and include relevant keywords."
 ---
-
-# Thoughts of using GitHub to manage content, with co-pilot and GitHub Actions
 
 When I worked at a dev-tool company, they required everything we posted to go through GitHub, including blogs. As a marketer, I wasn't used to working that way, but as a former journalist and content writer, I found the idea of an approval mechanism that requires reviews, both automated and manual, fascinating.
 
 Getting closer to developers exposed me to the simple yet clever idea of GitHub Actions and automated checks and tests. So I figured, why not have a simple tool that will act similar to YoastSEO, but inside GitHub, only for blog posts?
 
-What's even more cool about it is that I used GitHub Copilot in VS Code to build the linter. On top of that, I'm using this Copilot to edit and proofread this blog! So for now, VS Code is my WordPress. I invite you to install the Action, and if you are a developer, I invite you to contribute to the project.
+What's even cooler is that I used GitHub Copilot in VS Code to build the linter, only "code vibing". Additionally, since Copilot is powered by GPT-4, I'm using it to edit and proofread this blog! This makes my process fast and accurate. For now, VS Code is my WordPress.
+
+I invite you to install the Action, and if you are a developer, I invite you to contribute to the project.
 
 In the next steps, I'm looking to add spell check and brand-voice checker.
 
