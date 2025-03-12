@@ -15,15 +15,34 @@ I invite you to install the Action, and if you are a developer, I invite you to 
 
 In the next steps, I'm looking to add spell check and brand-voice checker.
 
-## Introducing the Content Linter GitHub Action
+## Release Notes: Content Linter GitHub Action v1.0.0
 
-The Content Linter GitHub Action is designed to help you ensure that your blog posts meet technical SEO requirements and include relevant keywords. It performs two main checks:
+### Overview
+
+We are excited to announce the release of the Content Linter GitHub Action! This action is designed to help you ensure that your blog posts meet technical SEO requirements and include relevant keywords. It performs two main checks:
 
 1. **Technical SEO**: Ensures that all titles, descriptions, and images exist and are described as needed. It also checks for broken links.
 2. **Keywords**: Ensures that one or more of the declared keywords appear in relevant places. The declared keywords are stored in a configuration file called `keywords.txt`.
 
-### How to Use the Content Linter
+### Features
 
-To get started with the Content Linter, follow these steps:
+- **Technical SEO Validation**: Automatically checks for the presence of titles, descriptions, and images in your blog posts. It also verifies that there are no broken links.
+- **Keyword Validation**: Ensures that your blog posts contain one or more of the declared keywords, helping you maintain relevance and improve SEO.
+- **Easy Integration**: Seamlessly integrates with your GitHub repository. Simply add the action to your workflow, and it will run on every push and pull request that affects your blog posts.
+- **Powered by GitHub Copilot**: The action was built using GitHub Copilot in VS Code, leveraging the power of GPT-4 for code generation and editing.
 
-Simply add it from Github actions marketplace
+### How to Use
+
+To get started with the Content Linter, simply add it from the [GitHub Marketplace](https://github.com/marketplace/actions/content-linter).
+
+### Contribute
+
+I welcome contributions from the community! If you have ideas for new features or improvements, please open an issue or submit a pull request.
+
+### Future Plans
+
+In the next steps, I'm looking to add spell check and brand-voice checker functionalities to the Content Linter.
+
+---
+
+I hope you find the Content Linter GitHub Action useful for maintaining high-quality blog posts. Happy blogging!
