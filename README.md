@@ -16,7 +16,7 @@
 - Added recommendations for including at least one image.
 - Improved error and warning messages.
 
-# 👋 Hey, I'm Raz
+## 👋 Hey, I'm Raz
 
 I'm a hands-on, data-driven marketer with **8+ years in early-stage startups**, blending strategy with execution. I help technical founders build and scale their **go-to-market (GTM) foundations**, making them **growth-ready** through a mix of **modern marketing, AI-powered automation, and data-driven insights**.
 
