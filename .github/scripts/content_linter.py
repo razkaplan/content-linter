@@ -187,9 +187,11 @@ def main():
         print(f"::endgroup::")
 
     if overall_success:
-        print("::set-output name=content-linter::success")
+        with open(os.environ['GITHUB_ENV'], 'a') as env_file:
+            env_file.write("content_linter=success\n")
     else:
-        print("::set-output name=content-linter::failure")
+        with open(os.environ['GITHUB_ENV'], 'a') as env_file:
+            env_file.write("content_linter=failure\n")
         exit(1)
 
 if __name__ == "__main__":
