@@ -26,40 +26,4 @@ The Content Linter GitHub Action is designed to help you ensure that your blog p
 
 To get started with the Content Linter, follow these steps:
 
-1. **Create a new GitHub Action workflow file**:
-   Create a new file in your repository at `.github/workflows/content-linter.yml`.
-
-2. **Define the workflow**:
-   Define the workflow to run on push events for new blog posts and perform the specified checks.
-
-Here's an example of how you can set up the GitHub Action workflow:
-
-```yaml
-name: Content Linter
-
-on:
-  push:
-    paths:
-      - "_posts/**/*.markdown"
-
-jobs:
-  content-linter:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.x'
-
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install beautifulsoup4 requests
-
-      - name: Run Content Linter
-        run: python .github/scripts/content_linter.py
-
+Simply add it from Github actions marketplace
