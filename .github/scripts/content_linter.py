@@ -3,61 +3,176 @@ import glob
 import re
 import requests
 from bs4 import BeautifulSoup
+from spellchecker import SpellChecker
+from textstat import flesch_reading_ease
 
 def check_seo(file_path):
     with open(file_path, 'r') as file:
         content = file.read()
 
-    # Check for title, description, and image
-    if not re.search(r'^title: ".*"$', content, re.MULTILINE):
-        print(f"Error: Missing title in {file_path}")
-        return False
-    if not re.search(r'^summary: ".*"$', content, re.MULTILINE):
-        print(f"Error: Missing summary in {file_path}")
-        return False
-    if not re.search(r'!\[.*\]\(.*\)', content):
-        print(f"Error: Missing image in {file_path}")
-        return False
+    errors = []
 
-    # Check for broken links
-    soup = BeautifulSoup(content, 'html.parser')
-    links = [a['href'] for a in soup.find_all('a', href=True)]
-    for link in links:
-        if not link.startswith('http'):
-            continue
-        try:
-            response = requests.head(link)
-            if response.status_code >= 400:
-                print(f"Error: Broken link {link} in {file_path}")
-                return False
-        except requests.RequestException:
-            print(f"Error: Broken link {link} in {file_path}")
-            return False
+    title_match = re.search(r'^title: "(.*?)"$', content, re.MULTILINE)
+    slug_match = re.search(r'^slug: "(.*?)"$', content, re.MULTILINE)
 
-    return True
+    title = title_match.group(1) if title_match else "UNKNOWN"
+    slug = slug_match.group(1) if slug_match else "UNKNOWN"
+
+    if not title_match:
+        errors.append("Missing title")
+    if not slug_match:
+        errors.append("Missing slug")
+
+    if errors:
+        for error in errors:
+            print(f"::error file={file_path}::{error}")
+        return False, title, slug
+
+    print(f"::notice file={file_path}::Blog Detected: {title} ({slug})")
+    return True, title, slug
 
 def check_keywords(file_path, keywords):
     with open(file_path, 'r') as file:
         content = file.read()
 
-    for keyword in keywords:
-        if keyword.lower() in content.lower():
-            return True
+    found_keywords = [kw for kw in keywords if kw.lower() in content.lower()]
 
-    print(f"Error: None of the declared keywords found in {file_path}")
-    return False
+    if found_keywords:
+        print(f"::notice file={file_path}::Keywords found: {', '.join(found_keywords)}")
+        return True
+    else:
+        print(f"::error file={file_path}::No relevant keywords found")
+        return False
+
+def check_links(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+
+    soup = BeautifulSoup(content, 'html.parser')
+    links = [a['href'] for a in soup.find_all('a', href=True)]
+    errors = []
+
+    for link in links:
+        if not link.startswith('http'):
+            continue  # Ignore relative links
+        try:
+            response = requests.head(link, allow_redirects=True)
+            if response.status_code >= 400:
+                errors.append(f"Broken link: {link}")
+        except requests.RequestException:
+            errors.append(f"Broken link: {link}")
+
+    if errors:
+        for error in errors:
+            print(f"::error file={file_path}::{error}")
+        return False
+
+    print(f"::notice file={file_path}::All links are valid")
+    return True
+
+def check_headings(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+
+    headings = re.findall(r'(?m)^#+\s+', content)
+    
+    if not headings:
+        print(f"::error file={file_path}::No headings found")
+        return False
+
+    if not re.search(r'(?m)^#\s+', content):
+        print(f"::error file={file_path}::Missing H1 heading")
+        return False
+
+    print(f"::notice file={file_path}::Headings structure OK")
+    return True
+
+def check_images(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+
+    soup = BeautifulSoup(content, 'html.parser')
+    images = soup.find_all('img')
+    missing_alt = [img['src'] for img in images if not img.get('alt')]
+
+    if missing_alt:
+        for img in missing_alt:
+            print(f"::error file={file_path}::Image missing alt text: {img}")
+        return False
+
+    print(f"::notice file={file_path}::All images have alt text")
+    return True
+
+def check_spelling(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read().lower()
+
+    spell = SpellChecker()
+    words = content.split()
+    misspelled = spell.unknown(words)
+
+    if misspelled:
+        for word in misspelled:
+            print(f"::warning file={file_path}::Possible misspelled word: '{word}'")
+        return False
+
+    print(f"::notice file={file_path}::No spelling mistakes detected")
+    return True
+
+def check_readability(file_path):
+    with open(file_path, 'r') as file:
+        content = file.read()
+
+    score = flesch_reading_ease(content)
+    
+    if score < 50:
+        print(f"::error file={file_path}::Low readability score: {score} (Try simplifying the content)")
+        return False
+
+    print(f"::notice file={file_path}::Readability score: {score}")
+    return True
 
 def main():
+
+    print("Running content linter...")
+
     keywords_file = '.github/scripts/keywords.txt'
     with open(keywords_file, 'r') as file:
         keywords = [line.strip() for line in file.readlines()]
 
-    posts = glob.glob('_posts/**/*.markdown')
+    posts = glob.glob('_posts/*.markdown') + glob.glob('_posts/*.md')
+    print("Detected posts:", posts)
+    
+    if not posts:
+        print("::error::No blog posts found in the _posts directory.")
+        exit(1)
+    
     for post in posts:
-        if not check_seo(post):
+        print(f"::group::Checking {post}")
+        
+        seo_ok, title, slug = check_seo(post)
+        keywords_ok = check_keywords(post, keywords)
+        links_ok = check_links(post)
+        headings_ok = check_headings(post)
+        images_ok = check_images(post)
+        spelling_ok = check_spelling(post)
+        readability_ok = check_readability(post)
+
+        print(f"::group::Results for {title} ({slug})")
+        print(f"SEO: {seo_ok}")
+        print(f"Keywords: {keywords_ok}")
+        print(f"Links: {links_ok}")
+        print(f"Headings: {headings_ok}")
+        print(f"Images: {images_ok}")
+        print(f"Spelling: {spelling_ok}")
+        print(f"Readability: {readability_ok}")
+        print("::endgroup::")
+
+        if not all([seo_ok, keywords_ok, links_ok, headings_ok, images_ok, spelling_ok, readability_ok]):
+            print(f"::error::Some checks failed for {post}")
             exit(1)
-        if not check_keywords(post, keywords):
-            exit(1)
+
+        print(f"::endgroup::")
 
 if __name__ == "__main__":
     main()
