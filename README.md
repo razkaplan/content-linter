@@ -1,3 +1,21 @@
+# Content Linter GitHub Action
+
+...
+
+## Release Notes
+
+### v.0.1
+- Initial release of the Content Linter GitHub Action.
+- Technical SEO validation: Checks for titles, descriptions, and images.
+- Keyword validation: Ensures relevant keywords are present.
+- Spell check: Detects and corrects spelling errors.
+- Easy integration with GitHub workflows.
+
+### v.0.2
+- Added recommendations for internal and external links.
+- Added recommendations for including at least one image.
+- Improved error and warning messages.
+
 # 👋 Hey, I'm Raz
 
 I'm a hands-on, data-driven marketer with **8+ years in early-stage startups**, blending strategy with execution. I help technical founders build and scale their **go-to-market (GTM) foundations**, making them **growth-ready** through a mix of **modern marketing, AI-powered automation, and data-driven insights**.
