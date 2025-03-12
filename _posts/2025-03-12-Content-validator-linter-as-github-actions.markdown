@@ -5,7 +5,7 @@ publishedAt: "2025-03-12"
 summary: "Exploring the use of GitHub and visual studio for content management, leveraging GitHub Copilot and GitHub Actions. This post introduces a custom-built Content Linter GitHub Action designed to ensure blog posts meet technical SEO requirements and include relevant keywords."
 ---
 
-## Managing Content Like Code: A Marketer’s Journey
+## Managing Content-as-Code: A Marketer’s Journey
 
 When I worked at a dev-tool company, everything—blogs included—had to go through GitHub. As a marketer, this was unfamiliar territory, but my background in journalism and content writing made me appreciate the structured review process. Having automated and manual approvals felt like a game-changer for content quality.
 
