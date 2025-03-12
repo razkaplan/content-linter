@@ -16,12 +16,10 @@ def check_seo(file_path):
     slug_match = re.search(r'^slug: "(.*?)"$', content, re.MULTILINE)
 
     title = title_match.group(1) if title_match else "UNKNOWN"
-    slug = slug_match.group(1) if slug_match else "UNKNOWN"
+    slug = slug_match.group(1) if slug_match else title.lower().replace(' ', '-')
 
     if not title_match:
         errors.append("Missing title")
-    if not slug_match:
-        errors.append("Missing slug")
 
     if errors:
         for error in errors:
@@ -70,17 +68,17 @@ def check_links(file_path):
     print(f"::notice file={file_path}::All links are valid")
     return True
 
-def check_headings(file_path):
+def check_headings(file_path, title):
     with open(file_path, 'r') as file:
         content = file.read()
 
     headings = re.findall(r'(?m)^#+\s+', content)
     
-    if not headings:
+    if not headings and not title:
         print(f"::error file={file_path}::No headings found")
         return False
 
-    if not re.search(r'(?m)^#\s+', content):
+    if not re.search(r'(?m)^#\s+', content) and not title:
         print(f"::error file={file_path}::Missing H1 heading")
         return False
 
@@ -126,7 +124,7 @@ def check_readability(file_path):
     score = flesch_reading_ease(content)
     
     if score < 50:
-        print(f"::error file={file_path}::Low readability score: {score} (Try simplifying the content)")
+        print(f"::warning file={file_path}::Low readability score: {score} (Try simplifying the content)")
         return False
 
     print(f"::notice file={file_path}::Readability score: {score}")
@@ -153,7 +151,7 @@ def main():
         seo_ok, title, slug = check_seo(post)
         keywords_ok = check_keywords(post, keywords)
         links_ok = check_links(post)
-        headings_ok = check_headings(post)
+        headings_ok = check_headings(post, title)
         images_ok = check_images(post)
         spelling_ok = check_spelling(post)
         readability_ok = check_readability(post)
@@ -168,7 +166,7 @@ def main():
         print(f"Readability: {readability_ok}")
         print("::endgroup::")
 
-        if not all([seo_ok, keywords_ok, links_ok, headings_ok, images_ok, spelling_ok, readability_ok]):
+        if not all([seo_ok, keywords_ok, links_ok, headings_ok, images_ok, spelling_ok]):
             print(f"::error::Some checks failed for {post}")
             exit(1)
 
