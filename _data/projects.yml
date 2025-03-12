@@ -2,5 +2,5 @@
   description: "Easier (categoriezed) and more simple (4 letters) version of the popular wordle game, in Hebrew, to help teaching kids reading"
   url: "https://app.base44.com/apps-show/-2fc96a8e"
 - title: "Content Linter for github actions"
-- description: "A simple content linter for markdown files, linting for SEO issues, to be used in github actions or manually using the python script"
-- url: "https://github.com/marketplace/actions/content-linter"
+  description: "A simple content linter for markdown files, linting for SEO issues, to be used in github actions or manually using the python script"
+  url: "https://github.com/marketplace/actions/content-linter"
