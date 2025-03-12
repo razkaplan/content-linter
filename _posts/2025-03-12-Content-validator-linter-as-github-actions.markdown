@@ -40,6 +40,7 @@ Tip: Make sure you have it with your own keywords before using the script
 ### How to Use
 
 To get started with the Content Linter, simply add it from the [GitHub Marketplace](https://github.com/marketplace/actions/content-linter).
+If you are not using GitHub, you can still use the Python script on your local machine.
 
 ### Contribute
 
