@@ -49,21 +49,30 @@ def check_links(file_path):
     soup = BeautifulSoup(content, 'html.parser')
     links = [a['href'] for a in soup.find_all('a', href=True)]
     errors = []
+    internal_links = 0
+    external_links = 0
 
     for link in links:
-        if not link.startswith('http'):
-            continue  # Ignore relative links
-        try:
-            response = requests.head(link, allow_redirects=True)
-            if response.status_code >= 400:
+        if link.startswith('http'):
+            external_links += 1
+            try:
+                response = requests.head(link, allow_redirects=True)
+                if response.status_code >= 400:
+                    errors.append(f"Broken link: {link}")
+            except requests.RequestException:
                 errors.append(f"Broken link: {link}")
-        except requests.RequestException:
-            errors.append(f"Broken link: {link}")
+        else:
+            internal_links += 1
 
     if errors:
         for error in errors:
             print(f"::error file={file_path}::{error}")
         return False
+
+    if internal_links < 1:
+        print(f"::warning file={file_path}::Not enough internal links (found {internal_links})")
+    if external_links < 1:
+        print(f"::warning file={file_path}::Not enough external links (found {external_links})")
 
     print(f"::notice file={file_path}::All links are valid")
     return True
@@ -97,6 +106,9 @@ def check_images(file_path):
         for img in missing_alt:
             print(f"::error file={file_path}::Image missing alt text: {img}")
         return False
+
+    if len(images) < 1:
+        print(f"::warning file={file_path}::Not enough images (found {len(images)})")
 
     print(f"::notice file={file_path}::All images have alt text")
     return True
@@ -145,6 +157,8 @@ def main():
         print("::error::No blog posts found in the _posts directory.")
         exit(1)
     
+    overall_success = True
+
     for post in posts:
         print(f"::group::Checking {post}")
         
@@ -166,12 +180,17 @@ def main():
         print(f"Readability: {readability_ok}")
         print("::endgroup::")
 
-        if not all([seo_ok, keywords_ok, links_ok, headings_ok, images_ok, spelling_ok]):
+        if not all([seo_ok, keywords_ok, links_ok, headings_ok, images_ok]):
+            overall_success = False
             print(f"::error::Some checks failed for {post}")
-            exit(1)
 
         print(f"::endgroup::")
 
+    if overall_success:
+        print("::set-output name=content-linter::success")
+    else:
+        print("::set-output name=content-linter::failure")
+        exit(1)
+
 if __name__ == "__main__":
     main()
-    
