@@ -28,8 +28,8 @@ We are excited to announce the release of the Content Linter GitHub Action! This
 
 - **Technical SEO Validation**: Automatically checks for the presence of titles, descriptions, and images in your blog posts. It also verifies that there are no broken links.
 - **Keyword Validation**: Ensures that your blog posts contain one or more of the declared keywords, helping you maintain relevance and improve SEO.
+- **Spell Check**: Utilizes the `pyspellchecker` Python library to automatically detect and correct spelling errors in your blog posts, ensuring your content is free from typos and spelling mistakes.
 - **Easy Integration**: Seamlessly integrates with your GitHub repository. Simply add the action to your workflow, and it will run on every push and pull request that affects your blog posts.
-- **Powered by GitHub Copilot**: The action was built using GitHub Copilot in VS Code, leveraging the power of GPT-4 for code generation and editing.
 
 ### How to Use
 
@@ -38,10 +38,6 @@ To get started with the Content Linter, simply add it from the [GitHub Marketpla
 ### Contribute
 
 I welcome contributions from the community! If you have ideas for new features or improvements, please open an issue or submit a pull request.
-
-### Future Plans
-
-In the next steps, I'm looking to add spell check and brand-voice checker functionalities to the Content Linter.
 
 ---
 
