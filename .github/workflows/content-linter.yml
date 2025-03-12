@@ -4,6 +4,9 @@ on:
   push:
     paths:
       - "_posts/**/*.markdown"
+  pull_request:
+    paths:
+      - "_posts/**/*.markdown"
 
 jobs:
   content-linter:
