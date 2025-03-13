@@ -270,6 +270,8 @@ GEM
       sawyer (~> 0.9)
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
+    posthog-ruby (2.7.1)
+      concurrent-ruby (~> 1)
     public_suffix (5.1.1)
     racc (1.8.1)
     rb-fsevent (0.11.2)
@@ -331,6 +333,7 @@ DEPENDENCIES
   jekyll-paginate
   jekyll-sitemap
   logger
+  posthog-ruby
   tzinfo (>= 1, < 3)
   tzinfo-data
   wdm (~> 0.1)
