@@ -6,7 +6,7 @@ gem "posthog-ruby"
 group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-paginate"
-  gem "github-pages"
+# gem "github-pages"
 end
 
 gem "logger"
