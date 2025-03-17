@@ -1,6 +1,10 @@
-- title: "Wordle for kids"
-  description: "Easier (categoriezed) and more simple (4 letters) version of the popular wordle game, in Hebrew, to help teaching kids reading"
+- title: "Wordle for Kids"
+  description: "Easier (categorized) and more simple (4 letters) version of the popular wordle game, in Hebrew, to help teach kids reading"
   url: "https://app.base44.com/apps-show/-2fc96a8e"
-- title: "Content Linter for github actions"
+- title: "Content Linter for Github actions"
   description: "A simple content linter for markdown files, linting for SEO issues, to be used in github actions or manually using the python script"
   url: "https://github.com/marketplace/actions/content-linter"
+- title: "Founders Quoter"
+  description: "Semi-automated curator of interesting quotes, scrapped from Linkedin"  
+  url: "https://founders.streamlit.app/"
+- 
