@@ -78,7 +78,7 @@ title: Home
 
   <!-- AI Fun Projects -->
   <section class="space-y-4">
-    <h2 class="text-2xl font-semibold">AI Projects for Fun</h2>
+    <h2 class="text-2xl font-semibold">Vibe Coding Projects</h2>
     <p>Some cool AI experiments and side projects I’ve built:</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
       {% for project in site.data.projects limit:3 %}
