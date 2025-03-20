@@ -81,7 +81,7 @@ title: Home
     <h2 class="text-2xl font-semibold">Vibe Coding Projects</h2>
     <p>Some cool AI experiments and side projects I’ve built:</p>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-      {% for project in site.data.projects limit:3 %}
+      {% for project in site.data.projects %}
       <div class="card p-4 border rounded-lg shadow-sm">
         <P class="text-lg font-semibold"><a href="{{ project.url }} " target="_blank">{{ project.title }}</a> - {{ project.description }}</p>
         ---
