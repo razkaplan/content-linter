@@ -7,4 +7,7 @@
 - title: "Founders Quoter"
   description: "Semi-automated curator of interesting quotes, scrapped from Linkedin"  
   url: "https://founders.streamlit.app/"
+- title: "Put your money where your mouth is"
+  description: "A smarter look on your expenses, find out how much you've spent on publicly traded companies and see what would happen if you invest the same amount"
+  URL: "https://expense2invest.streamlit.app/"
 
