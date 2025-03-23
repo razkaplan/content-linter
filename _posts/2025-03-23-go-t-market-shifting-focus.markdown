@@ -14,6 +14,8 @@ Even if it’s an internal tool for your team or a side project for your family,
 
 ### **4 Steps to Align Your Prompt for a Strong Landing & Onboarding Experience**
 
+![Base44 onboardinbg prompt](<base44 onboarding prompot.png>)
+
 Tools like Base44, Cursor, and Windsurf can generate landing pages and onboarding flows—but only if you guide them properly. Here’s how to set up your prompt for success:
 
 1️⃣ **Start with the Why**  
