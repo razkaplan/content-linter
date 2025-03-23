@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "I Vibe-Coded a Finance App: Turning Transactions into Investments"
-publishedAt: "2025-03-20"
+publishedAt: "2025-03-22"
 summary: "A weekend experiment to track my spending and turn it into an investment strategy—because if I believe in a product, why not own part of the company?"
-" 
+
 ---
 
 ## **A GTM Experiment Disguised as a Finance App**
