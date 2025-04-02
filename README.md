@@ -20,7 +20,7 @@
 
 I'm a hands-on, data-driven marketer with **8+ years in early-stage startups**, blending strategy with execution. I help technical founders build and scale their **go-to-market (GTM) foundations**, making them **growth-ready** through a mix of **modern marketing, AI-powered automation, and data-driven insights**.
 
-### 🏗 What I Do (a.k.a. MoMa – Modern Marketing)
+### 🏗 What I Do (Modern Marketing)
 I run a boutique GTM service tailored for B2B startups beyond stealth mode. I specialize in:
 - **GTM Strategy & Execution** – From zero to a scalable marketing engine
 - **Marketing Infrastructure** – Tools, automation, and AI-powered workflows
@@ -30,7 +30,7 @@ I run a boutique GTM service tailored for B2B startups beyond stealth mode. I sp
 ---
 ### 📫 Get in Touch
 - **[LinkedIn](https://www.linkedin.com/in/razkaplan/)**
-- **[Blog](https://razkaplan.github.io/gtm/)**
+- **[Blog](https://razkaplan.vercel.app/)**
 
 
 ## Fun Projects I built with the help of AI tools:
