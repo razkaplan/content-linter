@@ -1,6 +1,23 @@
-# Content Linter GitHub Action
+# Content Linter
 
-...
+A linter for Markdown blog posts based on [Why Content Linting Matters: QA for the GenAI Era](https://www.vcsaga.com/blog/2025-08-05-content-linting-matters).
+It checks for technical SEO, keyword usage, link health, headings, images, spelling, and readability.
+The linter can run locally as a CLI tool or inside GitHub Actions.
+
+## CLI Usage
+
+```bash
+pip install .
+content-linter --posts-dir _posts --keywords-file .github/scripts/keywords.txt
+```
+
+## GitHub Action
+
+```yaml
+- uses: razkpp/content-linter@v0
+  with:
+    keywords-file: .github/scripts/keywords.txt
+```
 
 ## Release Notes
 
@@ -32,9 +49,7 @@ I run a boutique GTM service tailored for B2B startups beyond stealth mode. I sp
 - **[LinkedIn](https://www.linkedin.com/in/razkaplan/)**
 - **[Blog](https://razkaplan.vercel.app/)**
 
-
 ## Fun Projects I built with the help of AI tools:
--- [Hebrew Wordle for kids](https://base44.app/apps-show/-2fc96a8e)
-
+- [Hebrew Wordle for kids](https://base44.app/apps-show/-2fc96a8e)
 
 🚀 Let's talk if you're a **B2B startup founder** looking to build a scalable marketing foundation!
