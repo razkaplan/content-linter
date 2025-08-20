@@ -1,0 +1,15 @@
+[project]
+name = "content-linter"
+version = "0.1.0"
+description = "Lint markdown content for SEO and readability"
+readme = "README.md"
+requires-python = ">=3.8"
+dependencies = [
+    "beautifulsoup4",
+    "requests",
+    "pyspellchecker",
+    "textstat",
+]
+
+[project.scripts]
+content-linter = "content_linter.cli:main"

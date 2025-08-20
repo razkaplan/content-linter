@@ -6,6 +6,7 @@ from bs4 import BeautifulSoup
 from spellchecker import SpellChecker
 from textstat import flesch_reading_ease
 
+
 def check_seo(file_path):
     with open(file_path, 'r') as file:
         content = file.read()
@@ -29,6 +30,7 @@ def check_seo(file_path):
     print(f"::notice file={file_path}::Blog Detected: {title} ({slug})")
     return True, title, slug
 
+
 def check_keywords(file_path, keywords):
     with open(file_path, 'r') as file:
         content = file.read()
@@ -41,6 +43,7 @@ def check_keywords(file_path, keywords):
     else:
         print(f"::error file={file_path}::No relevant keywords found")
         return False
+
 
 def check_links(file_path):
     with open(file_path, 'r') as file:
@@ -77,12 +80,13 @@ def check_links(file_path):
     print(f"::notice file={file_path}::All links are valid")
     return True
 
+
 def check_headings(file_path, title):
     with open(file_path, 'r') as file:
         content = file.read()
 
     headings = re.findall(r'(?m)^#+\s+', content)
-    
+
     if not headings and not title:
         print(f"::error file={file_path}::No headings found")
         return False
@@ -93,6 +97,7 @@ def check_headings(file_path, title):
 
     print(f"::notice file={file_path}::Headings structure OK")
     return True
+
 
 def check_images(file_path):
     with open(file_path, 'r') as file:
@@ -113,6 +118,7 @@ def check_images(file_path):
     print(f"::notice file={file_path}::All images have alt text")
     return True
 
+
 def check_spelling(file_path):
     with open(file_path, 'r') as file:
         content = file.read().lower()
@@ -129,12 +135,13 @@ def check_spelling(file_path):
     print(f"::notice file={file_path}::No spelling mistakes detected")
     return True
 
+
 def check_readability(file_path):
     with open(file_path, 'r') as file:
         content = file.read()
 
     score = flesch_reading_ease(content)
-    
+
     if score < 50:
         print(f"::warning file={file_path}::Low readability score: {score} (Try simplifying the content)")
         return False
@@ -142,26 +149,27 @@ def check_readability(file_path):
     print(f"::notice file={file_path}::Readability score: {score}")
     return True
 
-def main():
 
+def run(posts_dir="_posts", keywords_file=".github/scripts/keywords.txt"):
     print("Running content linter...")
 
-    keywords_file = '.github/scripts/keywords.txt'
     with open(keywords_file, 'r') as file:
         keywords = [line.strip() for line in file.readlines()]
 
-    posts = glob.glob('_posts/*.markdown') + glob.glob('_posts/*.md')
+    pattern_md = os.path.join(posts_dir, '*.md')
+    pattern_markdown = os.path.join(posts_dir, '*.markdown')
+    posts = glob.glob(pattern_markdown) + glob.glob(pattern_md)
     print("Detected posts:", posts)
-    
+
     if not posts:
         print("::error::No blog posts found in the _posts directory.")
-        exit(1)
-    
+        return False
+
     overall_success = True
 
     for post in posts:
         print(f"::group::Checking {post}")
-        
+
         seo_ok, title, slug = check_seo(post)
         keywords_ok = check_keywords(post, keywords)
         links_ok = check_links(post)
@@ -186,13 +194,4 @@ def main():
 
         print(f"::endgroup::")
 
-    if overall_success:
-        with open(os.environ['GITHUB_ENV'], 'a') as env_file:
-            env_file.write("content_linter=success\n")
-    else:
-        with open(os.environ['GITHUB_ENV'], 'a') as env_file:
-            env_file.write("content_linter=failure\n")
-        exit(1)
-
-if __name__ == "__main__":
-    main()
+    return overall_success
