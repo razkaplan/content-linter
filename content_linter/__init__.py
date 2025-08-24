@@ -193,7 +193,17 @@ def run(posts_dir="_posts", keywords_file=".github/scripts/keywords.txt"):
         print(f"Readability: {readability_ok}")
         print("::endgroup::")
 
-        if not all([seo_ok, keywords_ok, links_ok, headings_ok, images_ok]):
+        if not all(
+            [
+                seo_ok,
+                keywords_ok,
+                links_ok,
+                headings_ok,
+                images_ok,
+                spelling_ok,
+                readability_ok,
+            ]
+        ):
             overall_success = False
             print(f"::error::Some checks failed for {post}")
 
