@@ -19,6 +19,11 @@ content-linter --posts-dir _posts --keywords-file .github/scripts/keywords.txt
     keywords-file: .github/scripts/keywords.txt
 ```
 
+## Technical SEO validation
+
+The linter now ensures each post's front matter provides a title, slug, and non-empty description.
+Missing titles or descriptions trigger errors, and successful checks note the detected values.
+
 ## Release Notes
 
 ### v.0.1
