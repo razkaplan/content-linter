@@ -129,7 +129,19 @@ def check_spelling(file_path):
 
     if misspelled:
         for word in misspelled:
-            print(f"::warning file={file_path}::Possible misspelled word: '{word}'")
+            suggestion = spell.correction(word)
+            if suggestion and suggestion != word:
+                print(
+                    f"::warning file={file_path}::Possible misspelled word '{word}'; did you mean '{suggestion}'?"
+                )
+            else:
+                alternatives = spell.candidates(word) - {word}
+                if alternatives:
+                    print(
+                        f"::warning file={file_path}::Possible misspelled word '{word}'; suggestions: {', '.join(sorted(alternatives))}"
+                    )
+                else:
+                    print(f"::warning file={file_path}::Possible misspelled word: '{word}'")
         return False
 
     print(f"::notice file={file_path}::No spelling mistakes detected")
