@@ -15,20 +15,24 @@ def check_seo(file_path):
 
     title_match = re.search(r'^title: "(.*?)"$', content, re.MULTILINE)
     slug_match = re.search(r'^slug: "(.*?)"$', content, re.MULTILINE)
+    description_match = re.search(r'^description: "(.*?)"$', content, re.MULTILINE)
 
     title = title_match.group(1) if title_match else "UNKNOWN"
     slug = slug_match.group(1) if slug_match else title.lower().replace(' ', '-')
+    description = description_match.group(1).strip() if description_match else ""
 
     if not title_match:
         errors.append("Missing title")
+    if not description:
+        errors.append("Missing description")
 
     if errors:
         for error in errors:
             print(f"::error file={file_path}::{error}")
-        return False, title, slug
+        return False, title, slug, description
 
-    print(f"::notice file={file_path}::Blog Detected: {title} ({slug})")
-    return True, title, slug
+    print(f"::notice file={file_path}::Blog Detected: {title} ({slug}) - Description: {description}")
+    return True, title, slug, description
 
 
 def check_keywords(file_path, keywords):
@@ -170,7 +174,7 @@ def run(posts_dir="_posts", keywords_file=".github/scripts/keywords.txt"):
     for post in posts:
         print(f"::group::Checking {post}")
 
-        seo_ok, title, slug = check_seo(post)
+        seo_ok, title, slug, description = check_seo(post)
         keywords_ok = check_keywords(post, keywords)
         links_ok = check_links(post)
         headings_ok = check_headings(post, title)
@@ -180,6 +184,7 @@ def run(posts_dir="_posts", keywords_file=".github/scripts/keywords.txt"):
 
         print(f"::group::Results for {title} ({slug})")
         print(f"SEO: {seo_ok}")
+        print(f"Description: {'present' if description else 'missing'}")
         print(f"Keywords: {keywords_ok}")
         print(f"Links: {links_ok}")
         print(f"Headings: {headings_ok}")
