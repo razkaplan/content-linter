@@ -11,6 +11,8 @@ pip install .
 content-linter --posts-dir _posts --keywords-file .github/scripts/keywords.txt
 ```
 
+The command exits with a non-zero status if any check fails, including spelling and readability.
+
 ## GitHub Action
 
 ```yaml
